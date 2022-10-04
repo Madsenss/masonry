@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- https://sub0709.tistory.com/127 -->
+
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-myeongjo.css" rel="stylesheet">
+</head>
+<style>
+  body {
+    background-color: #eee
+  }
+
+  .grid {
+    margin: 0 auto;
+    width: 95%;
+  }
+
+  .grid-sizer,
+  .grid-item {
+    width: 22%;
+  }
+
+  .gutter-sizer {
+    width: 4%;
+  }
+
+  .grid-item {
+
+    margin-bottom: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 1s;
+    box-shadow: 5px 5px 10px 0px gray;
+  }
+
+  .grid-item img {
+    display: block;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .overlay-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .overlay-black {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: none;
+
+  }
+
+  .grid-item:hover .overlay-black {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.5);
+    animation-name: item-hover;
+    animation-duration: 0.2s;
+  }
+
+  .img-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black;
+    font-family: 'NanumMyeongjo';
+    font-size: 1vw;
+  }
+
+  .img-text h3 {
+    margin-bottom: -5px;
+    font-size: 1.5vw;
+  }
+
+
+
+
+  @keyframes item-hover {
+    0% {
+      opacity: 0.1;
+    }
+
+    10% {
+      opacity: 0.1;
+    }
+
+    20% {
+      opacity: 0.2;
+    }
+
+    30% {
+      opacity: 0.2;
+    }
+
+    40% {
+      opacity: 0.2;
+    }
+
+    50% {
+      opacity: 0.3;
+    }
+
+    60% {
+      opacity: 0.3;
+    }
+
+    70% {
+      opacity: 0.3;
+    }
+
+    70% {
+      opacity: 0.4;
+    }
+
+    80% {
+      opacity: 0.4;
+    }
+
+    90% {
+      opacity: 0.4;
+    }
+
+    100% {
+      opacity: 0.5;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div class="grid">
+    <div class="grid-sizer"></div>
+    <div class="gutter-sizer"></div>
+    <script>
+      for (let i = 1; i < 50; i++) {
+        var item =
+          `<div class="grid-item">
+            <div class="overlay-wrap">
+              <a href="https://www.naver.com">
+              <div class="overlay-black">
+                <div class="img-text">
+                  <h3>Leobinus</h3>
+                  <h1>Nanum Myeongjo</h1>
+                </div>
+              </div>
+              </a>
+            </div>
+            <div id="ig">
+              <img src="https://naver.github.io/egjs-infinitegrid/assets/image/${i}.jpg"
+            </div>
+           </div>`
+
+        document.querySelector('.gutter-sizer').insertAdjacentHTML('beforeend', item);
+      }
+    </script>
+
+
+    <div class="grid-item">
+      <div class="overlay-wrap">
+        <a href="https://www.naver.com">
+          <div class="overlay-black">
+            <div class="img-text">
+              <h3>Leobinus</h3>
+              <h1>Stdo&nbspUno&nbspSpecial</h1>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div id="ig">
+        <img src="logo1.jpg">
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script>
+    var msnry = new Masonry('.grid',
+      { itemSelector: '.grid-item', columnWidth: '.grid-sizer', fitWiths: true, gutter: '.gutter-sizer', percentPosition: true, });
+    imagesLoaded('.grid').on('progress', function () { msnry.layout(); });
+  </script>
+</body>
+
+</html>
